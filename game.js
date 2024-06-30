@@ -18,8 +18,12 @@ function getRandomColor(color){
     return color[randomNumber]
 }
 function nextColor(){
+    let colorSelect=getRandomColor(buttonColors)
+    colorSelect.classList.add("pressed");
+    
+    setTimeout(function(){
+    colorSelect.classList.remove("pressed")},600);
 
-getRandomColor(buttonColors).classList.toggle("pressed");
 }
 
 
@@ -28,11 +32,11 @@ document.addEventListener('keypress', () => {
         
     if (!started) {
         document.querySelector("#level-title").textContent = `Level ${level}`;
-        started = true;
-        nextColor() 
+        started = true;     
     }
     
-   
+    nextColor();
+
 
 });
 
